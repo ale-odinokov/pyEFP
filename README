@@ -1,0 +1,27 @@
+pyEFP is a library and tools to represent large molecules as a union of small effective fragments.
+
+You can find more information about effective fragments potential in the following publications:
+
+1) Mark S. Gordon, Dmitri G. Fedorov, Spencer R. Pruitt and Lyudmila V. Slipchenko,
+"Fragmentation Methods: A Route to Accurate Calculations on Large Systems",
+Chem. Rev., 2012, V. 112, Pp. 632-672
+
+2)Ilya A. Kaliman and Lyudmila V. Slipchenko,
+"LIBEFP: A New Parallel Implementation of the Effective
+Fragment Potential Method as a Portable Software Library",
+J. Comp. Chem., 2013, V. 34, Pp. 2284-2292.
+
+
+The project consists of several files:
+
+pyEFP.py - a library to read, write and store EFP data.
+
+fragrepr.py - a library to subdivide molecule into fragments.
+
+convert2EFP.py - a tool to generate input file for large molecule in GAMESS format.
+
+gencluster.py - a tool to construct a shell of given thickness around the QM part of the system.
+
+CreateNewFragment.py - a tool to calculate new effective fragment and add it to the database 
+
+

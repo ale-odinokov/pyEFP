@@ -1,0 +1,14 @@
+ $CONTRL SCFTYP=RHF dfttyp=b3lyp 
+  mult=1 icharg=0
+  COORD=UNIQUE UNITS=ANGS MAXIT=200
+  runtyp=energy
+ $END
+ $SYSTEM TIMLIM=10000 MWORDS=350 $END
+ $trans mptran=2 dirtrf=.t. aoints=dist $end  
+ $scf dirscf=.t. $end
+ $BASIS GBASIS=n31 ngauss=6 NDFUNC=1 $END
+
+
+
+
+
