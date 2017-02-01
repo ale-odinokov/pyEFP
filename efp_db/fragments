@@ -1,0 +1,200 @@
+$frag
+1,3,4-Oxadiazole
+o1cnnc1
+0 1,3,4-Oxadiazole_1
+1 1,3,4-Oxadiazole_2
+2 1,3,4-Oxadiazole_3
+$endfrag
+
+$frag
+1,3,5-triazine
+c1ncncn1
+0 1,3,5-triazine_1
+1 1,3,5-triazine_2 1,3,5-triazine_5
+2 1,3,5-triazine_3 1,3,5-triazine_6
+3 1,3,5-triazine_4 1,3,5-triazine_7
+$endfrag
+
+$frag
+1,10-phenanthroline
+c1cnc2c(c1)ccc3cccnc23
+0 1,10-phenanthroline_1
+1 1,10-phenanthroline_2
+2 1,10-phenanthroline_3
+$endfrag
+
+$frag
+2,1,3-Benzothiadiazole
+s1nc2ccccc2n1
+0 2,1,3-Benzothiadiazole_1
+1 2,1,3-Benzothiadiazole_2
+2 2,1,3-Benzothiadiazole_3
+$endfrag
+
+$frag
+2-Amino-9,9-dimethylfluorene
+CC1(C)c2ccccc2c3ccc(N)cc13
+0 2-Amino-9,9-dimethylfluorene_1
+1 2-Amino-9,9-dimethylfluorene_2
+2 2-Amino-9,9-dimethylfluorene_3
+$endfrag
+
+$frag
+2-aminopyridine
+Nc1ccccn1
+0 2-aminopyridine_1
+1 2-aminopyridine_2
+2 2-aminopyridine_3
+$endfrag
+
+$frag
+aniline
+Nc1ccccc1
+0 aniline_1
+1 aniline_2 aniline_3 aniline_7 aniline_10
+2 aniline_4 aniline_5 aniline_8 aniline_11 aniline_12
+3 aniline_6 aniline_9 aniline_13 aniline_14
+4 aniline_15
+$endfrag
+
+$frag
+Anthracene
+c1ccc2cc3ccccc3cc2c1
+0 Anthracene_1
+1 Anthracene_2 Anthracene_4 Anthracene_6
+2 Anthracene_3 Anthracene_5 Anthracene_7
+$endfrag
+
+$frag
+benzene
+c1ccccc1
+0 benzene_1
+1 benzene_2 benzene_4
+2 benzene_3 benzene_5 benzene_6 benzene_7 benzene_11 benzene_12 benzene_13 benzene_14
+3 benzene_8 benzene_9 benzene_15
+4 benzene_10
+$endfrag
+
+$frag
+Bromobenzene
+Brc1ccccc1
+0 Bromobenzene_1
+1 Bromobenzene_2 Bromobenzene_3
+$endfrag
+
+$frag
+chlorobenzene
+Clc1ccccc1
+0 chlorobenzene_1
+1 chlorobenzene_2 chlorobenzene_3
+$endfrag
+
+$frag
+Dithieno[3,2-b2',3'-d]thiophene
+s1ccc2sc3ccsc3c12
+0 Dithieno[3,2-b2',3'-d]thiophene_1
+1 Dithieno[3,2-b2',3'-d]thiophene_2
+2 Dithieno[3,2-b2',3'-d]thiophene_3
+$endfrag
+
+$frag
+Fluorene
+C1c2ccccc2c3ccccc13
+0 Fluorene_1
+1 Fluorene_2 Fluorene_4
+2 Fluorene_3
+$endfrag
+
+$frag
+Fluorobenzene
+Fc1ccccc1
+0 Fluorobenzene_1
+1 Fluorobenzene_2 Fluorobenzene_3
+$endfrag
+
+$frag
+Furan
+o1cccc1
+0 Furan_1
+1 Furan_2 Furan_3
+2 Furan_4 Furan_5 Furan_6
+3 Furan_7
+$endfrag
+
+$frag
+naphthalene
+c1ccc2ccccc2c1
+0 naphthalene_1
+1 naphthalene_2 naphthalene_3
+$endfrag
+
+$frag
+O-xylene
+Cc1ccccc1C
+0 O-xylene_1
+1 O-xylene_2
+$endfrag
+
+$frag
+Phenanthrene
+c1ccc2c(c1)ccc3ccccc23
+0 Phenanthrene_1
+1 Phenanthrene_2
+$endfrag
+
+$frag
+Phenoxazine
+N1c2ccccc2Oc3ccccc13
+0 Phenoxazine_1
+1 Phenoxazine_2
+$endfrag
+
+$frag
+Pyrazine
+c1cnccn1
+0 Pyrazine_1
+1 Pyrazine_2
+2 Pyrazine_3 Pyrazine_4 Pyrazine_5
+3 Pyrazine_6
+4 Pyrazine_7
+$endfrag
+
+$frag
+Pyrene
+c1cc2ccc3cccc4ccc(c1)c2c34
+0 Pyrene_1
+1 Pyrene_2
+$endfrag
+
+$frag
+Pyridine
+c1ccncc1
+0 Pyridine_1
+1 Pyridine_2 Pyridine_3
+2 Pyridine_4
+$endfrag
+
+$frag
+Quinoxaline
+c1ccc2nccnc2c1
+0 Quinoxaline_1
+1 Quinoxaline_2
+2 Quinoxaline_3
+$endfrag
+
+$frag
+Thieno[3,2-b]thiophene
+s1ccc2sccc12
+0 Thieno[3,2-b]thiophene_1
+1 Thieno[3,2-b]thiophene_2
+2 Thieno[3,2-b]thiophene_3
+$endfrag
+
+$frag
+thiophene
+s1cccc1
+0 thiophene_1
+1 thiophene_2 thiophene_4 thiophene_7
+2 thiophene_3 thiophene_5 thiophene_6
+$endfrag
+
