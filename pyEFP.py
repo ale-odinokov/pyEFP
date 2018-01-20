@@ -1,4 +1,4 @@
-# this file contains definitions of classes and functions aimed at the 
+# this file contains definitions of classes and functions aimed at the
 # reading, writing and modification of the data from the EFP files obtained
 # as a result of the GAMESS US calculation
 
@@ -6,7 +6,7 @@ import openbabel
 import pybel
 import numpy as np
 
-Bohr = 0.52917721092 
+Bohr = 0.52917721092
 
 NumValElec = {"H":1, "C":4, "N":5, "O":6, "S":6}
 Symb = ("H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar")
@@ -173,7 +173,7 @@ def SolveKabsch(molFit, molRef, maskFit, maskRef):
     return rot, COMRef, COMFit
 
 
-# Applying least squares fit to the OBMol object 
+# Applying least squares fit to the OBMol object
 def ApplyKabsch(molFit, COMFit, COMRef, rot):
     crd=[]
     for at in openbabel.OBMolAtomIter(molFit):
@@ -187,7 +187,7 @@ def ApplyKabsch(molFit, COMFit, COMRef, rot):
         i+=1
     return True
 
-# Applying least squares fit to the EFPdata object 
+# Applying least squares fit to the EFPdata object
 # multipole definitions are erased
 def ApplyKabschEFP(molFit, COMFit, COMRef, rot):
     crd=[]
@@ -215,7 +215,7 @@ def ApplyKabschEFP(molFit, COMFit, COMRef, rot):
         newMol.atoms[i].mass = molFit.atoms[i].mass
         newMol.atoms[i].num = molFit.atoms[i].num
         newMol.atoms[i].charge = molFit.atoms[i].charge
-    for i in xrange(molFit.nbonds):   
+    for i in xrange(molFit.nbonds):
         newMol.nbonds += 1
         newMol.bonds.append(EFPbond())
         newMol.bonds[i].idx1 = molFit.bonds[i].idx1
@@ -223,8 +223,8 @@ def ApplyKabschEFP(molFit, COMFit, COMRef, rot):
         newMol.bonds[i].x = crd[i+molFit.natoms][0]/Bohr
         newMol.bonds[i].y = crd[i+molFit.natoms][1]/Bohr
         newMol.bonds[i].z = crd[i+molFit.natoms][2]/Bohr
-        newMol.bonds[i].charge = molFit.bonds[i].charge 
-    for i in xrange(molFit.ncentroids): 
+        newMol.bonds[i].charge = molFit.bonds[i].charge
+    for i in xrange(molFit.ncentroids):
         newMol.ncentroids += 1
         newMol.centroids.append(EFPcentroid())
         newMol.centroids[i].x = crd[i+molFit.natoms+molFit.nbonds][0]/Bohr
@@ -421,13 +421,13 @@ class EFPcentroid:
         print "                {0:17.9f}{1:17.9f}{2:17.9f}{3:17.9f} >"\
               .format(self.polar[4], self.polar[5], self.polar[6], self.polar[7])
         print "                {0:17.9f}".format(self.polar[8])
-        
 
-# description of capping: indices of atoms and fragments, excess charge 
+
+# description of capping: indices of atoms and fragments, excess charge
 class Capping:
     def __init__(self):
         self.oldindex = 0       # old index of the bonding atom
-        self.bondindex = (0, 0) # new indices of the bond between fragments       
+        self.bondindex = (0, 0) # new indices of the bond between fragments
         self.bond = False       # whether a middlepoint of the bond between fragments is present
         self.charge = 0.0       # excess charge
 
@@ -476,7 +476,7 @@ class EFPdata:
                 self.nbonds += 1
                 self.bonds.append(EFPbond())
                 self.bonds[-1].FillFromString(s)
-            s = fp.readline()  
+            s = fp.readline()
 
     def FillCharges(self, fp):
         s = fp.readline()
@@ -498,7 +498,7 @@ class EFPdata:
             if (s[0:1]=="B"):
                 self.bonds[idxb].AddCharge(s)
                 idxb += 1
-            s = fp.readline()  
+            s = fp.readline()
 
     def FillDipoles(self, fp):
         s = fp.readline()
@@ -520,7 +520,7 @@ class EFPdata:
             if (s[0:1]=="B"):
                 self.bonds[idxb].AddDipole(s)
                 idxb += 1
-            s = fp.readline()  
+            s = fp.readline()
 
     def FillQuadrupoles(self, fp):
         s = fp.readline()
@@ -536,14 +536,14 @@ class EFPdata:
             if (len(s)>4):
                 if (s.strip()[0:4]=="STOP"):
                     break
-            s2 = fp.readline()  
+            s2 = fp.readline()
             if (s[0:1]=="A"):
                 self.atoms[idxa].AddQuadrupole(s,s2)
                 idxa += 1
             if (s[0:1]=="B"):
                 self.bonds[idxb].AddQuadrupole(s,s2)
                 idxb += 1
-            s = fp.readline()  
+            s = fp.readline()
 
     def FillOctupoles(self, fp):
         s = fp.readline()
@@ -559,15 +559,15 @@ class EFPdata:
             if (len(s)>4):
                 if (s.strip()[0:4]=="STOP"):
                     break
-            s2 = fp.readline()  
-            s3 = fp.readline()  
+            s2 = fp.readline()
+            s3 = fp.readline()
             if (s[0:1]=="A"):
                 self.atoms[idxa].AddOctupole(s,s2,s3)
                 idxa += 1
             if (s[0:1]=="B"):
                 self.bonds[idxb].AddOctupole(s,s2,s3)
                 idxb += 1
-            s = fp.readline()  
+            s = fp.readline()
 
     def FillScreen2(self, fp):
         s = fp.readline()
@@ -590,7 +590,7 @@ class EFPdata:
             if (s[0:1]=="B"):
                 self.bonds[idxb].AddScreen2(s)
                 idxb += 1
-            s = fp.readline()  
+            s = fp.readline()
 
     def FillScreen3(self, fp):
         s = fp.readline()
@@ -613,7 +613,7 @@ class EFPdata:
             if (s[0:1]=="B"):
                 self.bonds[idxb].AddScreen3(s)
                 idxb += 1
-            s = fp.readline() 
+            s = fp.readline()
 
     def FillCentroids(self, fp):
         s = fp.readline()
@@ -634,7 +634,7 @@ class EFPdata:
                 s2 = fp.readline()
                 s3 = fp.readline()
                 self.centroids[-1].AddPolar(s1,s2,s3)
-            s = fp.readline()  
+            s = fp.readline()
 
 
     def SetName(self, NewName):
@@ -664,7 +664,7 @@ class EFPdata:
             dz = (a.z-z)
             d = dx*dx + dy*dy + dz*dz
             if (d<d0):
-                ndx = i   
+                ndx = i
                 d0 = d
             i += 1
         return ndx, d0
@@ -679,7 +679,7 @@ class EFPdata:
             dz = (b.z-z)
             d = dx*dx + dy*dy + dz*dz
             if (d<d0):
-                ndx = i   
+                ndx = i
                 d0 = d
             i += 1
         return ndx, d0
@@ -748,7 +748,7 @@ class EFPdata:
                     if (b.idx1 == i+1):
                         neighbors[i+1].append(b.idx2)
                     elif (b.idx2 == i+1):
-                        neighbors[i+1].append(b.idx1)           
+                        neighbors[i+1].append(b.idx1)
         # ---------------------------------------
         for i in dellist:
             if (self.atoms[i].num>1):
@@ -791,8 +791,8 @@ class EFPdata:
                 for c in self.cappings:
                     if (c.oldindex == b.idx1) or (c.oldindex == b.idx2):
                         c.bond = True
-                        c.bondindex = (newlist[b.idx1-1] + 1, newlist[b.idx2-1] + 1)   
-                        break                 
+                        c.bondindex = (newlist[b.idx1-1] + 1, newlist[b.idx2-1] + 1)
+                        break
                 b.idx1 = newlist[b.idx1-1] + 1
                 b.idx2 = newlist[b.idx2-1] + 1
         i = 0
@@ -823,21 +823,21 @@ class EFPdata:
         for a in self.atoms:
             i += 1
             print "\n    ------ atom ", i, "-------"
-            a.Print() 
+            a.Print()
         print "\n ============== BONDS ==============="
         i = 0
         for b in self.bonds:
             i += 1
             print "\n    ------ bond ", i, "-------"
             print "\n",
-            b.Print() 
+            b.Print()
         print "\n ============== CENTROIDS ==============="
         i = 0
         for c in self.centroids:
             i += 1
             print "\n    ------ centroid ", i, "-------"
             print "\n",
-            c.Print() 
+            c.Print()
         print self.valel
         print "\n ============ CAPPINGS ============="
         for c in self.cappings:
@@ -855,7 +855,7 @@ class EFPdata:
         for b in self.bonds:
             fp.write(" BO{0:d}{1:<s}{2:15.10f}{3:15.10f}{4:15.10f}{5:12.7f}{6:5.1f}\n".format(\
                      b.idx1, str(b.idx2).ljust(5-len(str(b.idx1))), b.x, b.y, b.z, 0.0, 0.0))
-            
+
         fp.write(" STOP\n")
         fp.write(" MONOPOLES\n")
         i = 0
@@ -926,7 +926,8 @@ class EFPdata:
             fp.write(" BO{0:d}{1:<s}{2:16.10f}{3:14.10f}\n".format(\
                      b.idx1, str(b.idx2).ljust(5-len(str(b.idx1))), b.screen2[0], b.screen2[1]))
         fp.write(" STOP\n")
-        fp.write(" $END\n")  
+        fp.write(" POLAB 0.1\n STOP\n")
+        fp.write(" $END\n")
 
 
     def WriteCoords2EFP(self, fp):
@@ -969,4 +970,3 @@ class EFPdata:
             fp.write("ATOM  {0:<5d} {1:4s} LIG {2:5d}    {3:8.3f}{4:8.3f}{5:8.3f}{6:6.2f}{7:6.2f}          {8:>2s}  \n".format(\
                      i+start, "Xe".ljust(4)[0:4], resid, c.x*Bohr, c.y*Bohr, c.z*Bohr, 0.0, 0.0, "Xe"))
             i += 1
-
